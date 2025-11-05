@@ -1,0 +1,5 @@
+{
+  "name": "Lista de Tareas Interactiva",
+  "description": "Una aplicación web de lista de tareas interactiva que permite al usuario gestionar tareas de manera eficiente con funcionalidades completas de creación, eliminación, edición y gestión de tiempos, todo con una interfaz moderna y sincronización local.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- 'lang="es"' le dice al navegador que el idioma de esta página es español. -->
+<html lang="es">
+  <head>
+    <!-- La sección <head> contiene información y configuraciones para el navegador, no es visible en la página. -->
+
+    <!-- 'charset="UTF-8"' asegura que los caracteres especiales como acentos (á, é, í) se vean correctamente. -->
+    <meta charset="UTF-8" />
+    
+    <!-- Este es el ícono que aparece en la pestaña del navegador. -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- 'viewport' hace que la página se vea bien en todos los dispositivos (móviles, tabletas, etc.), adaptándose al ancho de la pantalla. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Este es el título que aparece en la pestaña del navegador. -->
+    <title>Lista de Tareas Interactiva</title>
+    
+    <!-- Aquí cargamos Tailwind CSS, una herramienta que nos permite dar estilos (colores, tamaños, etc.) de forma muy rápida usando clases. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Este bloque de script nos permite configurar y extender Tailwind con nuestros propios estilos, como las animaciones personalizadas. -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            // 'keyframes' define los pasos de una animación.
+            keyframes: {
+              'pop-in': { // Nombre de la animación
+                '0%': { transform: 'scale(0.5)', opacity: '0' }, // Empieza pequeña y transparente
+                '100%': { transform: 'scale(1)', opacity: '1' }, // Termina a tamaño normal y visible
+              },
+              'fade-out': {
+                '0%': { transform: 'scale(1)', opacity: '1' }, // Empieza normal
+                '100%': { transform: 'scale(0.5)', opacity: '0' }, // Termina pequeña y transparente
+              },
+            },
+            // 'animation' le da un nombre a la animación para que podamos usarla en nuestro HTML con una clase.
+            animation: {
+              'pop-in': 'pop-in 0.3s ease-out forwards',
+              'fade-out': 'fade-out 0.3s ease-in forwards',
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <!-- La sección <body> es el contenido visible de la página. Le damos un fondo oscuro y texto blanco por defecto. -->
+  <body class="bg-gray-900 text-white">
+    <!-- Este <div> es el "contenedor raíz" o el "escenario". Es un espacio vacío donde nuestra aplicación de React se va a dibujar. -->
+    <div id="root"></div>
+    
+    <!-- Esta línea es crucial. Le dice al navegador que cargue y ejecute nuestro código de JavaScript (y React).
+         'type="module"' permite usar características modernas de JavaScript como 'import'. -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
